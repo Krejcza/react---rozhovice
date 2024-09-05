@@ -1,18 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Button, Layout } from 'antd';
+import './Navbar.css'
+import Logo from './Logo';
+import MenuList from './MenuList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
+
+const {Header, Sider} = Layout
+
 
 function Navbar() {
+
+  const [collapsed, setCollapsed] = useState(false)
+
+
   return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/news">News</Link></li>
-        <li><Link to="/teams/adults">Adults Team</Link></li>
-        <li><Link to="/teams/youth">Youth Teams</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-      </ul>
-    </nav>
+    <Layout>
+      <Sider className='sidebar' collapsible collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)}>
+        <Logo />
+        <MenuList />
+      </Sider>
+      <Layout style={{ marginLeft: collapsed ? '80px' : '200px' }}>
+      <Header className='header-shrink'>
+          <Button onClick={() => setCollapsed(!collapsed)} className='toggle-btn' type='text' icon={collapsed ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />} />
+        </Header>
+      </Layout>
+    </Layout>
   );
 }
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Adults() {
   return (
-    <div>
+    <div className='content'>
       <h1>Adults Teams</h1>
       <ul>
         <li>
