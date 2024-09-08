@@ -21,7 +21,7 @@ function Navbar() {
         <MenuList />
       </Sider>
       <Layout style={{ marginLeft: collapsed ? '80px' : '200px' }}>
-      <Header className='header-shrink'>
+      <Header className={`header-shrink ${collapsed ? 'collapsed' : 'expanded'}`}>
           <Button onClick={() => setCollapsed(!collapsed)} className='toggle-btn' type='text' icon={collapsed ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />} />
         </Header>
       </Layout>

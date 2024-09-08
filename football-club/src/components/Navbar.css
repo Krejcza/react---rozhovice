@@ -36,10 +36,19 @@
    font-size: 1rem;
 }
 
-.header-shrink{
-   padding: 0;
+.header-shrink {
+   position: fixed; 
+   top: 0;
+   left: 200px; 
+   width: calc(100% - 200px); 
    background-color: transparent;
-   z-index: 999;
+   z-index: 999; 
+   transition: left 0.2s, width 0.2s; 
+}
+
+.header-shrink.collapsed {
+   left: 30px;
+   width: calc(100% - 30px);
 }
 
 .ant-layout-sider-trigger {
